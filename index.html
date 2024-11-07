@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les Écoles Scientifiques Mariotte</title>
+    <meta name="description" content="Découvrez Les Écoles Scientifiques Mariotte, offrant un cadre d'excellence pour l'éducation à Rabat, Maroc.">
+    <meta name="keywords" content="école, education, Rabat, Maroc, excellence académique">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Roboto:wght@400;500;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header Styles */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 5%;
+            background-color: #2C3E50;
+            color: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            margin-left: 20px;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 600;
+            font-size: 1.8rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #f39c12;
+        }
+
+        /* Main Content Styles */
+        main {
+            width: 100%;
+            margin-top: 100px; /* Reduced to decrease unwanted space */
+            padding-top: 20px; /* Adjusted padding */
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+            flex: 1;
+        }
+
+        .photo-ecole-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('photo-ecole.png');
+            background-size: cover;
+            background-position: center;
+            filter: blur(8px);
+            z-index: -1;
+            background-attachment: fixed;
+        }
+
+        .photo-ecole-content {
+            position: relative;
+            z-index: 1;
+            color: white;
+            margin-top: 0vh; /* Reduced from 20vh to reduce space */
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(8px);
+        }
+
+        /* Section Styles */
+        section {
+            width: 80%;
+            max-width: 1000px;
+            padding: 60px;
+            margin-bottom: 30px;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, background-color 0.3s ease;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        section:hover {
+            transform: none;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 500;
+            color: #2C3E50;
+        }
+
+        section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #000000;
+        }
+
+        /* Call-to-Action Button Styles */
+        .cta-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #f39c12;
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            background-color: #e67e22;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #2C3E50;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+        }
+
+        footer a {
+            color: #f2f2f2;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #f39c12;
+        }
+
+        nav {
+            display: flex;
+            flex-direction: row;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 20px;
+            }
+
+            header h1 {
+                font-size: 1.6rem;
+                margin-top: 10px;
+            }
+
+            nav {
+                margin-top: 15px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav a {
+                margin: 10px 0;
+            }
+
+            .photo-ecole-content {
+                width: 90%;
+                margin-top: 10vh;
+            }
+
+            .photo-ecole-content h2 {
+                font-size: 2rem;
+            }
+
+            .photo-ecole-content p {
+                font-size: 1rem;
+            }
+
+            section {
+                width: 95%;
+                padding: 30px;
+            }
+
+            footer {
+                padding: 15px 10px;
+            }
+
+            footer p {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Keyframe Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="logo.png" alt="Logo de l'école" style="width: 120px; height: auto;">
+    <h1>Les Écoles Scientifiques Mariotte</h1>
+    <nav>
+        <a href="#accueil">Accueil</a>
+        <a href="#apropos">À propos</a>
+        <a href="#galerie">Galerie</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<main>
+    <section id="accueil">
+        <div class="photo-ecole-container"></div>
+        <div class="photo-ecole-content">
+            <h2>Bienvenue aux Écoles Scientifiques Mariotte</h2>
+            <p>Les Écoles Scientifiques Mariotte offrent un cadre d'excellence pour tous les niveaux : préscolaire, primaire, collège, et lycée. Nous nous engageons à fournir une éducation de qualité qui prépare les élèves à réussir dans un monde en constante évolution.</p>
+            <a href="#apropos" class="cta-btn">En savoir plus</a>
+        </div>
+    </section>
+
+    <section id="apropos">
+        <h2>À propos de nous</h2>
+        <p>Les Écoles Scientifiques Mariotte offrent un cadre d'excellence propice au développement intellectuel et personnel de chaque élève, quel que soit son niveau : préscolaire, primaire, collège ou lycée. Nous nous engageons pleinement à fournir une éducation de qualité, alliant rigueur académique, ouverture sur le monde et développement des compétences nécessaires pour réussir dans un environnement de plus en plus complexe et en constante évolution. Nos équipes pédagogiques, expérimentées et passionnées, mettent tout en œuvre pour accompagner chaque élève dans son parcours scolaire, en favorisant l'esprit critique, la créativité et la curiosité, tout en cultivant des valeurs humaines essentielles telles que le respect, la solidarité et la responsabilité. Grâce à des méthodes d'enseignement innovantes et une approche personnalisée, nous préparons nos élèves à relever les défis de demain et à s'épanouir tant sur le plan académique que personnel.</p>
+    </section>
+
+    <section id="mission">
+        <h2>Notre mission et nos valeurs</h2>
+        <p>La mission des Écoles Scientifiques Mariotte est de fournir une éducation d'excellence qui place chaque élève au cœur de son apprentissage. Nous avons pour objectif de former des citoyens responsables, ouverts d'esprit et capables de s'adapter aux défis de demain. En cultivant un environnement d'apprentissage stimulant, nous mettons un accent particulier sur l'acquisition de connaissances solides, le développement des compétences critiques et créatives, ainsi que la promotion des valeurs humaines telles que la persévérance, le respect et l'intégrité. À travers des méthodes pédagogiques innovantes, un suivi personnalisé et une ouverture sur le monde, notre mission est d'accompagner nos élèves dans leur épanouissement intellectuel et personnel, afin qu'ils deviennent des acteurs engagés et compétents de la société.</p>
+    </section>
+
+    <section id="galerie">
+        <h2>Galerie</h2>
+        <p>Découvrez des moments marquants à travers des vidéos et photos de nos événements scolaires.</p>
+        <div class="video-gallery">
+            <video width="320" height="240" controls>
+                <source src="video/event1.mp4" type="video/mp4">
+                Votre navigateur ne supporte pas la balise vidéo.
+            </video>
+            <video width="320" height="240" controls>
+                <source src="video/event2.mp4" type="video/mp4">
+                Votre navigateur ne supporte pas la balise vidéo.
+            </video>
+            <video width="320" height="240" controls>
+                <source src="video/event3.mp4" type="video/mp4">
+                Votre navigateur ne supporte pas la balise vidéo.
+            </video>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact et Localisation</h2>
+        <p><strong>Adresse :</strong> Rue Exemple, Rabat, Maroc</p>
+        <p><strong>Téléphone :</strong> +212 5 37 00 00 00</p>
+        <p><strong>Email :</strong> contact@ecolemariotte.ma</p>
+
+        <h3>Localisation</h3>
+        <iframe src="https://www.google.com/maps/embed?pb=..." width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </section>
+</main>
+
+<footer>
+    <p>Suivez-nous sur <a href="https://www.facebook.com/EcolesScientifiqueMariotte/" target="_blank">Facebook</a></p>
+    <p>&copy; 2024 Les Écoles Scientifiques Mariotte - Tous droits réservés.</p>
+</footer>
+
+</body>
+</html>
