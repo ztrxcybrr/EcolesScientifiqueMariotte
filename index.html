@@ -233,6 +233,71 @@
                 opacity: 1;
             }
         }
+
+        /* Gallery Styles */
+        #galerie {
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        .gallery-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .media-gallery {
+            display: flex;
+            overflow: hidden;
+            width: 700px; /* Adjust the width of the gallery */
+            justify-content: center;
+        }
+
+        .media-item {
+            display: none; /* Hide media items initially */
+        }
+
+        .media-item.active {
+            display: block; /* Show only the active media item */
+        }
+
+        .nav-btn {
+            background-color: transparent;
+            border: none;
+            font-size: 2rem;
+            color: black;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            color: #f39c12;
+        }
+
+        .prev-btn {
+            position: absolute;
+            left: 0;
+            font-size: 2.5rem;
+            z-index: 10;
+        }
+
+        .next-btn {
+            position: absolute;
+            right: 0;
+            font-size: 2.5rem;
+            z-index: 10;
+        }
+
+        .gallery-item {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05); /* Slight zoom on hover */
+        }
     </style>
 </head>
 <body>
@@ -271,15 +336,37 @@
     <section id="galerie">
         <h2>Galerie</h2>
         <p>Découvrez des moments marquants à travers des vidéos et photos de nos événements scolaires.</p>
-        <div class="video-gallery">
-            <video width="320" height="240" controls>
-                <source src="event2.mp4" type="video/mp4">
-                Votre navigateur ne supporte pas la balise vidéo.
-            </video>
-            <video width="320" height="240" controls>
-                <source src="event3.mp4" type="video/mp4">
-                Votre navigateur ne supporte pas la balise vidéo.
-            </video>
+
+        <div class="gallery-container">
+            <button class="nav-btn prev-btn">&#60;</button>
+            <div class="media-gallery">
+                <div class="media-item active">
+                    <img src="photo1.jpg" alt="Événement 1" class="gallery-item">
+                </div>
+                <div class="media-item">
+                    <img src="photo2.jpg" alt="Événement 2" class="gallery-item">
+                </div>
+                <div class="media-item">
+                    <img src="photo3.jpg" alt="Événement 2" class="gallery-item">
+                </div>
+                <div class="media-item">
+                    <img src="photo4.jpg" alt="Événement 2" class="gallery-item">
+                </div>
+                <div class="media-item">
+                    <img src="photo5.jpg" alt="Événement 5" class="gallery-item">
+                </div>
+                <div class="media-item">
+                    <video width="320" height="240" controls>
+                        <source src="event2.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="media-item">
+                    <video width="320" height="240" controls>
+                        <source src="event3.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+            <button class="nav-btn next-btn">&#62;</button>
         </div>
     </section>
 
@@ -290,7 +377,7 @@
         <p><strong>Email :</strong> contact@ecolemariotte.ma</p>
 
         <h3>Localisation</h3>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3308.5833349683458!2d-6.828290323522398!3d33.97754747318524!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda76b5adde7d20b%3A0x1ae04c847e28fc9f!2sLes%20%C3%89coles%20Scientifiques%20Mariotte!5e0!3m2!1sfr!2sma!4v1730942585406!5m2!1sfr!2sma" width="600"  height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3308.5833349683458!2d-6.828290323522398!3d33.97754747318524!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda76b5adde7d20b%3A0x1ae04c847e28fc9f!2sLes%20%C3%89coles%20Scientifiques%20Mariotte!5e0!3m2!1sfr!2sma!4v1730942585406!5m2!1sfr!2sma" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </section>
 </main>
 
@@ -298,6 +385,32 @@
     <p>Suivez-nous sur <a href="https://www.facebook.com/EcolesScientifiqueMariotte/" target="_blank">Facebook</a></p>
     <p>&copy; 2024 Les Écoles Scientifiques Mariotte - Tous droits réservés.</p>
 </footer>
+
+<script>
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    const mediaItems = document.querySelectorAll('.media-item');
+    let currentIndex = 0;
+
+    function showItem(index) {
+        mediaItems.forEach((item, i) => {
+            item.classList.remove('active');
+            if (i === index) {
+                item.classList.add('active');
+            }
+        });
+    }
+
+    prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex === 0) ? mediaItems.length - 1 : currentIndex - 1;
+        showItem(currentIndex);
+    });
+
+    nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex === mediaItems.length - 1) ? 0 : currentIndex + 1;
+        showItem(currentIndex);
+    });
+</script>
 
 </body>
 </html>
